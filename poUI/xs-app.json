@@ -1,0 +1,28 @@
+{
+	"welcomeFile": "index.html",
+	"authenticationMethod": "none",
+	"routes": [{
+		"source": "/poInit(.*)",
+		"destination": "poServices_be",
+		"csrfProtection": false
+	}, {
+		"source": "(.*)(.xsjs)",
+		"destination": "poServices_be",
+		"csrfProtection": false
+	}, {
+		"source": "(.*)(.xsodata)",
+		"destination": "poServices_be"
+	}, {
+		"source": "/(.*)",
+		"localDir": "resources",
+		"replace": {
+			"pathSuffixes": [
+				"index.html",
+				"odataTest.html"
+			],
+			"vars": [
+				"ui5liburl"
+			]
+		}
+	}]
+}

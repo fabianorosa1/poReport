@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/UI.xml">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="$metadata">
+		<edmx:Include Alias="com.sap.openSAP.hana5.example.services" Namespace="com.sap.openSAP.hana5.example.services"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="purchaseOrders.com.sap.openSAP.hana5.example.services">
+			<!--===============================================================================
+                Entity Type from chosen collection 
+                ================================================================================-->
+			<Annotations Target="com.sap.openSAP.hana5.example.services.POHeaderType">
+				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+					<Collection>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Path="Id" Property="Value"/>
+							<PropertyValue Property="Label" String="Purchase Order ID"/>
+							<Annotation EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/High" Term="com.sap.vocabularies.UI.v1.Importance"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Path="PARTNER" Property="Value"/>
+							<PropertyValue Property="Label" String="Supplier ID"/>
+							<Annotation EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/Medium" Term="com.sap.vocabularies.UI.v1.Importance"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Path="GROSSAMOUNT" Property="Value"/>
+							<PropertyValue Property="Label" String="Gross Amount"/>
+							<Annotation EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/High" Term="com.sap.vocabularies.UI.v1.Importance"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Path="CURRENCY" Property="Value"/>
+							<PropertyValue Property="Label" String="Currency"/>
+							<Annotation EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/Low" Term="com.sap.vocabularies.UI.v1.Importance"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Qualifier="Primary" Term="com.sap.vocabularies.UI.v1.FieldGroup">
+					<Record>
+						<PropertyValue Property="Label" String="Primary"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="com.sap.vocabularies.UI.v1.DataField">
+									<PropertyValue Path="Id" Property="Value"/>
+									<PropertyValue Property="Label" String="Purchase Order ID"/>
+									<PropertyValue Integer="10" Property="Position"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.UI.v1.DataField">
+									<PropertyValue Path="PARTNER" Property="Value"/>
+									<PropertyValue Property="Label" String="Supplier ID"/>
+									<PropertyValue Integer="20" Property="Position"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.UI.v1.DataField">
+									<PropertyValue Path="GROSSAMOUNT" Property="Value"/>
+									<PropertyValue Property="Label" String="Gross Amount"/>
+									<PropertyValue Integer="50" Property="Position"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.UI.v1.DataField">
+									<PropertyValue Path="CURRENCY" Property="Value"/>
+									<PropertyValue Property="Label" String="Currency"/>
+									<PropertyValue Integer="60" Property="Position"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>PARTNER</PropertyPath>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="TypeName" String="{@i18n>PO_HEADER}"/>
+						<PropertyValue Property="TypeNamePlural" String="{@i18n>PO_HEADERS}"/>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" String="{@i18n>PO_HEADER}"/>
+						</Record>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="Id"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="Description">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="GROSSAMOUNT"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderFacets"></Annotation>
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="ID" String="GeneralInformation"/>
+							<PropertyValue Property="Label" String="{@i18n>@GeneralInfoFacetLabel}"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Label" String="{@i18n>@GeneralInfoFacetLabel}"/>
+										<PropertyValue Property="Target" AnnotationPath="@UI.LineItem"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Label" String="{@i18n>@SecondFacetLabel}"/>
+							<PropertyValue Property="Target" AnnotationPath="POItem/@UI.LineItem"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<!--===============================================================================
+                Entity Type from chosen navigation property
+                ================================================================================-->
+			<Annotations Target="com.sap.openSAP.hana5.example.services.POItemType">
+				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+					<Collection>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Path="POHeader.Id" Property="Value"/>
+							<PropertyValue Property="Label" String="Purchase Order ID"/>
+							<Annotation EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/High" Term="com.sap.vocabularies.UI.v1.Importance"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Path="ItemID" Property="Value"/>
+							<PropertyValue Property="Label" String="Purchase Order Item ID"/>
+							<Annotation EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/High" Term="com.sap.vocabularies.UI.v1.Importance"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Path="PRODUCT" Property="Value"/>
+							<PropertyValue Property="Label" String="Product ID"/>
+							<Annotation EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/High" Term="com.sap.vocabularies.UI.v1.Importance"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Path="QUANTITY" Property="Value"/>
+							<PropertyValue Property="Label" String="Quantity"/>
+							<Annotation EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/High" Term="com.sap.vocabularies.UI.v1.Importance"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Path="QUANTITYUNIT" Property="Value"/>
+							<PropertyValue Property="Label" String="Quantity Unit"/>
+							<Annotation EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/Low" Term="com.sap.vocabularies.UI.v1.Importance"/>
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Path="DELIVERYDATE" Property="Value"/>
+							<PropertyValue Property="Label" String="Delivery Date"/>
+							<Annotation EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/High" Term="com.sap.vocabularies.UI.v1.Importance"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Qualifier="Primary" Term="com.sap.vocabularies.UI.v1.FieldGroup">
+					<Record>
+						<PropertyValue Property="Label" String="Primary"/>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="com.sap.vocabularies.UI.v1.DataField">
+									<PropertyValue Path="POHeader.Id" Property="Value"/>
+									<PropertyValue Property="Label" String="Purchase Order ID"/>
+									<PropertyValue Integer="10" Property="Position"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.UI.v1.DataField">
+									<PropertyValue Path="ItemID" Property="Value"/>
+									<PropertyValue Property="Label" String="Purchase Order Item ID"/>
+									<PropertyValue Integer="20" Property="Position"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.UI.v1.DataField">
+									<PropertyValue Path="PRODUCT" Property="Value"/>
+									<PropertyValue Property="Label" String="Product ID"/>
+									<PropertyValue Integer="30" Property="Position"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.UI.v1.DataField">
+									<PropertyValue Path="QUANTITY" Property="Value"/>
+									<PropertyValue Property="Label" String="Quantity"/>
+									<PropertyValue Integer="70" Property="Position"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.UI.v1.DataField">
+									<PropertyValue Path="QUANTITYUNIT" Property="Value"/>
+									<PropertyValue Property="Label" String="Quantity Unit"/>
+									<PropertyValue Integer="71" Property="Position"/>
+								</Record>
+								<Record Type="com.sap.vocabularies.UI.v1.DataField">
+									<PropertyValue Path="DELIVERYDATE" Property="Value"/>
+									<PropertyValue Property="Label" String="Delivery Date"/>
+									<PropertyValue Integer="80" Property="Position"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="ID" String="GeneralInformation"/>
+							<PropertyValue Property="Label" String="{@i18n>@GeneralInfoFacetLabel}"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Label" String="{@i18n>@GeneralInfoFacetLabel}"/>
+										<PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

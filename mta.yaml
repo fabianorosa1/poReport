@@ -1,0 +1,52 @@
+ID: poReport
+_schema-version: '2.0'
+version: 1.0.0
+description: Purchase Order Fiori Report Simple Example
+provider: SAP HANA Product Management
+
+modules:
+ - name: poDB
+   type: hdb
+   path: poDB
+   requires:
+    - name: hdi-container
+
+
+ - name: poServices
+   type: nodejs
+   path: poServices
+   provides:
+    - name: poServices_api
+      properties:
+         url: ${default-url}
+   requires:
+    - name: poDB
+    - name: hdi-container
+    
+
+ - name: poUI
+   type: html5
+   path: poUI
+   requires:
+    - name: poServices_api
+      group: destinations
+      properties:
+         name: poServices_be
+         url: ~{url}
+    - name: ui5-lib
+      properties:
+         ui5liburl: '~{url}'         
+
+resources:
+ - name: hdi-container
+   parameters:
+      config:
+         schema: PO_SIMPLE_EXAMPLE
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
+ - name: ui5-lib
+   type: configuration
+   parameters:
+     provider-id: 'com.sap.ui5.dist.sapui5-dist-xsa.XSAC_UI5_FESV3:sapui5_fesv3'
+     version: '>=1.44.0'
