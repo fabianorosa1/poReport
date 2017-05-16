@@ -36,7 +36,16 @@ modules:
     - name: ui5-lib
       properties:
          ui5liburl: '~{url}'         
-
+   provides:
+    - name: demo
+      properties:
+        ui-url: '${default-url}'
+   parameters:
+      host: demo
+      register-service-url: true
+      service-name: demo
+      service-url: '${default-url}'
+      
 resources:
  - name: hdi-container
    parameters:
