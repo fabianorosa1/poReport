@@ -1,7 +1,7 @@
 ID: poReport
 _schema-version: '2.0'
-version: 1.0.0
-description: Purchase Order Fiori Report Simple Example
+version: 2.2.0
+description: Purchase Order Fiori Report Simple Example based upon HANA 2.0 SPS 02
 provider: SAP HANA Product Management
 
 modules:
@@ -57,5 +57,5 @@ resources:
  - name: ui5-lib
    type: configuration
    parameters:
-     provider-id: 'com.sap.ui5.dist.sapui5-dist-xsa.XSAC_UI5_FESV3:sapui5_fesv3'
-     version: '>=1.44.0'
+     provider-id: 'com.sap.ui5.dist.sapui5-dist-xsa.XSAC_UI5_FESV4:sapui5_fesv4'
+     version: '>=1.49.0-SNAPSHOT'

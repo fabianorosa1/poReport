@@ -42,7 +42,7 @@ module.exports = function() {
 				res.type("text/plain").status(500).send("ERROR: " + err.toString());
 				return;
 			}
-			res.type("text/html").status(200).send("Purchas Order Test Records have been created sucessfully");
+			res.type("text/html").status(200).send("Purchase Order Test Records have been created sucessfully");
 		});
 	});
 

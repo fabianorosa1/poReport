@@ -4,14 +4,14 @@
 		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
 	</edmx:Reference>
 	<edmx:Reference Uri="$metadata">
-		<edmx:Include Alias="com.sap.openSAP.hana5.example.services" Namespace="com.sap.openSAP.hana5.example.services"/>
+		<edmx:Include Alias="com.sap.openSAP.hana.example.services" Namespace="com.sap.openSAP.hana.example.services"/>
 	</edmx:Reference>
 	<edmx:DataServices>
-		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="purchaseOrders.com.sap.openSAP.hana5.example.services">
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="purchaseOrders.com.sap.openSAP.hana.example.services">
 			<!--===============================================================================
                 Entity Type from chosen collection 
                 ================================================================================-->
-			<Annotations Target="com.sap.openSAP.hana5.example.services.POHeaderType">
+			<Annotations Target="com.sap.openSAP.hana.example.services.POHeaderType">
 				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
 					<Collection>
 						<Record Type="com.sap.vocabularies.UI.v1.DataField">
@@ -114,7 +114,7 @@
 			<!--===============================================================================
                 Entity Type from chosen navigation property
                 ================================================================================-->
-			<Annotations Target="com.sap.openSAP.hana5.example.services.POItemType">
+			<Annotations Target="com.sap.openSAP.hana.example.services.POItemType">
 				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
 					<Collection>
 						<Record Type="com.sap.vocabularies.UI.v1.DataField">

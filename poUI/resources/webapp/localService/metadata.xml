@@ -5,7 +5,7 @@
         <Schema
             xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
             xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="com.sap.openSAP.hana5.example.services">
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="com.sap.openSAP.hana.example.services">
             <EntityType Name="POHeaderType">
                 <Key>
                     <PropertyRef Name="Id"/>
@@ -14,7 +14,7 @@
                 <Property Name="PARTNER" Type="Edm.String" MaxLength="10"/>
                 <Property Name="CURRENCY" Type="Edm.String" MaxLength="5"/>
                 <Property Name="GROSSAMOUNT" Type="Edm.Decimal" Precision="15" Scale="2"/>
-                <NavigationProperty Name="POItem" Relationship="com.sap.openSAP.hana5.example.services.ItemsType" FromRole="POHeaderPrincipal" ToRole="POItemDependent"/>
+                <NavigationProperty Name="POItem" Relationship="com.sap.openSAP.hana.example.services.ItemsType" FromRole="POHeaderPrincipal" ToRole="POItemDependent"/>
             </EntityType>
             <EntityType Name="POItemType">
                 <Key>
@@ -28,13 +28,13 @@
                 <Property Name="DELIVERYDATE" Type="Edm.DateTime"/>
             </EntityType>
             <Association Name="ItemsType">
-                <End Type="com.sap.openSAP.hana5.example.services.POHeaderType" Role="POHeaderPrincipal" Multiplicity="1"/>
-                <End Type="com.sap.openSAP.hana5.example.services.POItemType" Role="POItemDependent" Multiplicity="*"/>
+                <End Type="com.sap.openSAP.hana.example.services.POHeaderType" Role="POHeaderPrincipal" Multiplicity="1"/>
+                <End Type="com.sap.openSAP.hana.example.services.POItemType" Role="POItemDependent" Multiplicity="*"/>
             </Association>
             <EntityContainer Name="v2" m:IsDefaultEntityContainer="true">
-                <EntitySet Name="POHeader" EntityType="com.sap.openSAP.hana5.example.services.POHeaderType"/>
-                <EntitySet Name="POItem" EntityType="com.sap.openSAP.hana5.example.services.POItemType"/>
-                <AssociationSet Name="Items" Association="com.sap.openSAP.hana5.example.services.ItemsType">
+                <EntitySet Name="POHeader" EntityType="com.sap.openSAP.hana.example.services.POHeaderType"/>
+                <EntitySet Name="POItem" EntityType="com.sap.openSAP.hana.example.services.POItemType"/>
+                <AssociationSet Name="Items" Association="com.sap.openSAP.hana.example.services.ItemsType">
                     <End Role="POHeaderPrincipal" EntitySet="POHeader"/>
                     <End Role="POItemDependent" EntitySet="POItem"/>
                 </AssociationSet>
