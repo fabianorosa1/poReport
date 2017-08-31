@@ -1,15 +1,15 @@
 {
   "dependencies": {
-    "@sap/xsjs": "1.16.1",
+    "@sap/xsjs": "2.0.0",
     "@sap/xsenv": "1.2.7",
-    "@sap/xssec": "1.1.1",
-    "@sap/hdbext": "4.3.4", 
+    "@sap/xssec": "2.1.0",
+    "@sap/hdbext": "4.4.2", 
     "express": "~4.15",
-    "passport": "~0.3.2",
+    "passport": "~0.4.0",
     "async": "latest"
   },
   "devDependencies": {
-    "@sap/xsjs-test": "2.0.7"
+    "@sap/xsjs-test": "2.0.9"
   },
   "files": [],
   "main": "server.js",
