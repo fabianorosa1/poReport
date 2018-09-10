@@ -1,10 +1,13 @@
 {
 	"name": "poUI-approuter",
 	"engines": {
-		"node": ">=4.0.0 <7.0.0"
+		"node": " ^8 "
+	},
+	"devDependencies": {
+		"@sap/grunt-sapui5module-bestpractice-build": "^0.0.14"
 	},
 	"dependencies": {
-		"@sap/approuter": "2.10"
+		"@sap/approuter": "5.6.4"
 	},
 	"scripts": {
 		"start": "node node_modules/@sap/approuter/approuter.js"

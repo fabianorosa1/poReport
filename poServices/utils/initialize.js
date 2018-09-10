@@ -1,7 +1,8 @@
-/*eslint no-console: 0, no-unused-vars: 0*/
+/*eslint no-console: 0, no-unused-vars: 0, no-undef:0*/
+/*eslint-env node, es6 */
 "use strict";
 module.exports = {
-	initExpress: function() {
+	initExpress: () => {
 		var xsenv = require("@sap/xsenv");
 		var passport = require("passport");
 		var xssec = require("@sap/xssec");
@@ -32,7 +33,7 @@ module.exports = {
 		return app;
 	},
 
-	initXSJS: function(app) {
+	initXSJS: (app) => {
 		var xsjs = require("@sap/xsjs");
 		var xsenv = require("@sap/xsenv");
 		var options = {

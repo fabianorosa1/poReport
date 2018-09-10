@@ -1,7 +1,7 @@
 ID: poReport
-_schema-version: '2.0'
-version: 2.2.0
-description: Purchase Order Fiori Report Simple Example based upon HANA 2.0 SPS 02
+_schema-version: '3.1'
+version: 2.3.1
+description: Purchase Order Fiori Report Simple Example based upon HANA 2.0 SPS 03
 provider: SAP HANA Product Management
 
 modules:
@@ -33,9 +33,7 @@ modules:
       properties:
          name: poServices_be
          url: ~{url}
-    - name: ui5-lib
-      properties:
-         ui5liburl: '~{url}'         
+    - name: poReport-ui5
    provides:
     - name: demo
       properties:
@@ -54,8 +52,8 @@ resources:
    properties:
       hdi-container-name: ${service-name}
    type: com.sap.xs.hdi-container
- - name: ui5-lib
-   type: configuration
+ - name: poReport-ui5
+   type: org.cloudfoundry.managed-service
    parameters:
-     provider-id: 'com.sap.ui5.dist.sapui5-dist-xsa.XSAC_UI5_FESV4:sapui5_fesv4'
-     version: '>=1.49.0-SNAPSHOT'
+     service: sapui5_sb
+     service-plan: sapui5-1.52
